@@ -1,0 +1,49 @@
+version: '3'
+
+networks:
+  net:
+
+services:
+  consensus_node1:
+    container_name: node1
+    image: openjdk:8-jdk
+    volumes:
+      - ./../target:/code
+    ports:
+      - "10000:10000"
+    command: /usr/local/openjdk-8/bin/java -jar /code/pbft-1.0-SNAPSHOT.jar
+    networks:
+      - net
+
+  consensus_node2:
+    container_name: node2
+    image: openjdk:8-jdk
+    volumes:
+      - ./../target:/code
+    ports:
+      - "11000:10000"
+    command: /usr/local/openjdk-8/bin/java -jar /code/pbft-1.0-SNAPSHOT.jar
+    networks:
+      - net
+
+  consensus_node3:
+    container_name: node3
+    image: openjdk:8-jdk
+    volumes:
+      - ./../target:/code
+    ports:
+      - "12000:10000"
+    command: /usr/local/openjdk-8/bin/java -jar /code/pbft-1.0-SNAPSHOT.jar
+    networks:
+      - net
+
+  consensus_node4:
+    container_name: node4
+    image: openjdk:8-jdk
+    volumes:
+      - ./../target:/code
+    ports:
+      - "13000:10000"
+    command: /usr/local/openjdk-8/bin/java -jar /code/pbft-1.0-SNAPSHOT.jar
+    networks:
+      - net
